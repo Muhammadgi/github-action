@@ -22,9 +22,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Docker Compose Build
-        run: sudo docker-compose -f /opt/uptime-kuma/compose.yaml build -d
+        run: sudo docker-compose build -d
   deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Check Docker Running Container
-        run: Sudo docker ps -a
+        run: sudo docker ps -a
