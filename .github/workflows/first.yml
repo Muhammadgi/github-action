@@ -3,7 +3,7 @@ name : Package Workflow System Information
 
 on:
   push:
-    branches:[main]
+    branches: [main]
 
 jobs:
   Packages commands:
