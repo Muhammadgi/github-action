@@ -1,33 +1,24 @@
-name : Linux Basics Command Workflow System Information
-
-
+name : Package Workflow System Information
 
 
 on:
   push:
-    branches: [main]
+    branches:[main]
 
 jobs:
-  commands:
+  Packages commands:
     runs-on: ubuntu-latest
     steps:
-      - name: Check system information
-        run: uname -a
-      - name: Check disk space
-        run: df -h
-      - name: Check memory usage
-        run: free -h
-      - name: Check CPU information
-        run: cat /proc/cpuinfo
-      - name: Check network configuration
-        run: ifconfig -a
-      - name: Virtual Memory Usage
-        run: vmstat -s
-      - name: list all the directories and files
-        run: ls -la
-      - name: making directory
-        run: mkdir my_directory
-      - name: creating a file
-        run: touch my_file.txt
-      - name: listing all the files and directories
-        run: ls -la
+      - name: upgrading Linux packages
+        run: sudo apt update && sudo apt upgrade -y
+      - name: installing curl
+        run: sudo apt install curl -y
+      - name: Installation of nginx
+        run: sudo apt install nginx -y
+      - name: starting nginx service
+        run: sudo systemctl start nginx
+      - name: checking nginx status
+        run: sudo systemctl status nginx
+      - name: sudo enable nginx to start on boot
+        run: sudo systemctl enable nginx
+    
