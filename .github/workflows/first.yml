@@ -1,28 +1,33 @@
-name: Task 2 Workflow
+name : Linux Basics Command Workflow System Information
+
+
+
 
 on:
   push:
     branches: [main]
 
 jobs:
-  checking:
+  commands:
     runs-on: ubuntu-latest
     steps:
       - name: Check system information
         run: uname -a
-
       - name: Check disk space
         run: df -h
-
       - name: Check memory usage
         run: free -h
+      - name: Check CPU information
+        run: cat /proc/cpuinfo
       - name: Check network configuration
         run: ifconfig -a
-      - name: Check system uptime
-        run: uptime
-      - name: Check logged in users
-        run: who
-      - name: check python version
-        run: python --version 
-      - name: Check docker version
-        run: docker --version
+      - name: Virtual Memory Usage
+        run: vmstat -s
+      - name: list all the directories and files
+        run: ls -la
+      - name: making directory
+        run: mkdir my_directory
+      - name: creating a file
+        run: touch my_file.txt
+      - name: listing all the files and directories
+        run: ls -la
