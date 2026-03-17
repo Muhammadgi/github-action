@@ -1,1 +1,35 @@
+name: Code build test and deploy needs based workflow
 
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check system information
+        run: uname -a
+      - name: Check disk space
+        run: df -h
+      - name: Check memory usage
+        run: free -h
+    test:
+      runs-on: ubuntu-latest
+      needs: build
+      steps:
+        - name: Check network configuration
+          run: ifconfig -a
+        - name: Check system uptime
+          run: uptime
+        - name: Check logged in users
+          run: who  
+    deploy:
+      runs-on: ubuntu-latest
+      needs: [build,test]
+      steps:
+        - name: check python version
+          run: python --version 
+        - name: Check docker version
+          run: docker --version 
