@@ -6,7 +6,7 @@ on:
     branches: [main]
 
 jobs:
-  Packages commands:
+  Packages_commands:
     runs-on: ubuntu-latest
     steps:
       - name: upgrading Linux packages
