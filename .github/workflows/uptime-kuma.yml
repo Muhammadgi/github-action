@@ -13,8 +13,6 @@ jobs:
         run: cd /opt
       - name: Create Directory
         run: sudo mkdir uptime-kuma
-      - name: Change Directory
-        run: cd uptime-kuma
       - name: Clone the repository
         run: curl -o compose.yaml https://raw.githubusercontent.com/louislam/uptime-kuma/master/compose.yaml
 
