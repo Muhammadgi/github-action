@@ -1,8 +1,8 @@
 name : uptime-kuma  
 
+on:
+  push:
 
-push:
-  on:
     branches: [main]
 
 jobs:
