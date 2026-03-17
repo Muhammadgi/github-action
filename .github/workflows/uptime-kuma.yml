@@ -1,0 +1,30 @@
+name : uptime-kuma  
+
+
+push:
+  on:
+    branches: [main]
+
+jobs:
+  code:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Change Directory
+        run: cd /opt
+      - name: Create Directory
+        run: sudo mkdir uptime-kuma
+      - name: Change Directory
+        run: cd uptime-kuma
+      - name: Clone the repository
+        run: curl -o compose.yaml https://raw.githubusercontent.com/louislam/uptime-kuma/master/compose.yaml
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Docker Compose Build
+        run: sudo docker-compose -f /opt/uptime-kuma/compose.yaml build -d
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check Docker Running Container
+        run: Sudo docker ps -a
