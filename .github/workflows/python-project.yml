@@ -4,7 +4,7 @@ on:
   push:
     branches: [ "main" ]
     paths: 
-      - ".github/workflows/python.yml"
+      - ".github/workflows/python-project.yml"
 jobs:
 
   # ----------------------
